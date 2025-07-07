@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>IMDB Review Sentiment App</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>IMDB Review Sentiment</h1>
+        <form action="/results" method="post">
+            <label for="movie">Enter Movie Name:</label>
+            <input type="text" id="movie" name="movie" placeholder="e.g. Avengers Endgame" required>
+            <br>
+            <button type="submit">Search</button>
+        </form>
+    </div>
+</body>
+</html>

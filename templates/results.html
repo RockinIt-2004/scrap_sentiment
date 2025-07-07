@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results - IMDB Sentiment</title>
+</head>
+<body>
+    <h1>Results for "{{ movie_name }}"</h1>
+    <h2>Sentiment Counts</h2>
+    <ul>
+        <li>Positive: {{ counts['positive'] }}</li>
+        <li>Negative: {{ counts['negative'] }}</li>
+        <li>Neutral: {{ counts['neutral'] }}</li>
+    </ul>
+
+    <h2>Reviews</h2>
+    <table border="1">
+        <tr>
+            <th>Review</th>
+            <th>Sentiment</th>
+        </tr>
+        {% for r in results %}
+        <tr>
+            <td>{{ r['text'] }}</td>
+            <td>{{ r['sentiment'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Search another movie</a>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reviews for {{ movie_name }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        table {
+            width: 90%;
+            max-width: 1000px;
+            margin: 30px auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            overflow: hidden;
+            backdrop-filter: blur(10px);
+        }
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+        th {
+            background-color: rgba(255, 255, 255, 0.2);
+            font-size: 1.2em;
+        }
+        tr:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+            color: #fff;
+            font-size: 2.5em;
+        }
+        a.button {
+            display: inline-block;
+            padding: 12px 30px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            color: #4e54c8;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 30px auto;
+            transition: background-color 0.3s;
+        }
+        a.button:hover {
+            background-color: #dddddd;
+        }
+        body {
+            background: linear-gradient(135deg, #4e54c8, #8f94fb);
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <h1>Reviews for "{{ movie_name }}"</h1>
+
+    <table>
+        <tr>
+            <th>Review</th>
+            <th>Sentiment</th>
+        </tr>
+        {% for review in reviews %}
+        <tr>
+            <td>{{ review['text'] }}</td>
+            <td>{{ review['sentiment'] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="text-align:center;">
+        <a href="/results" class="button">Back to Summary</a>
+        <a href="/" class="button">Search Another Movie</a>
+    </div>
+</body>
+</html>
